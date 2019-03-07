@@ -1,0 +1,25 @@
+{
+  "name": "ramda_util",
+  "version": "1.0.0",
+  "description": "ramda use summary,and make it easy to use in diffent project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jingkeke/ramda_utils.git"
+  },
+  "keywords": [
+    "ramda"
+  ],
+  "author": "jingkeke",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jingkeke/ramda_utils/issues"
+  },
+  "homepage": "https://github.com/jingkeke/ramda_utils#readme",
+  "dependencies": {
+    "ramda": "^0.26.1"
+  }
+}
