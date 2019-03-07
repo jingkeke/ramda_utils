@@ -1,18 +1,20 @@
 {
   "name": "ramda_util",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "ramda use summary personally ,publishing making me easy to use newest in diffent projects",
   "main": "lib/bin/app.js",
-    "scripts": {
-      "11prepublish": "node_modules/babel-cli/bin/babel.js src  lib",
-         "compile": "babel -d lib/ src/", 
-         "prepublish": "npm run compile",
-         "server": "node app.babel.js",
-         "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "babel": {
-      "presets": ["es2015"]
-    },
+  "scripts": {
+    "11prepublish": "node_modules/babel-cli/bin/babel.js src  lib",
+    "compile": "babel -d lib/ src/",
+    "prepublish": "npm run compile",
+    "server": "node app.babel.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jingkeke/ramda_utils.git"
