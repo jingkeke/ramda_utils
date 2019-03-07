@@ -1,7 +1,7 @@
 {
   "name": "ramda_util",
-  "version": "1.0.1",
-  "description": "ramda use summary,and make it easy to use in diffent project",
+  "version": "1.0.2",
+  "description": "ramda use summary personally ,publishing making me easy to use newest in diffent projects",
   "main": "lib/bin/app.js",
     "scripts": {
       "11prepublish": "node_modules/babel-cli/bin/babel.js src  lib",

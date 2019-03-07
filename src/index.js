@@ -1,6 +1,6 @@
- import ArrayUtils from './ArrayUtils'
- import domOper from './domOper'
- import ObjectUtils from './ObjUtils'
+ import * as ArrayUtils from './ArrayUtils'
+ import * as  domOper from './domOper'
+ import * as ObjectUtils from './ObjUtils'
 
 
  export 
