@@ -1,5 +1,5 @@
 # ramda_utils
-ramda use summary persionally,and make it easy to use in diffent project.
+[ramda函数式编程库](https://adispring.coding.me/2017/10/21/What-Function-Should-I-Use/) use summary persionally,and make it easy to use in diffent project.
 
 
 ### use
