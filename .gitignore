@@ -1,0 +1,28 @@
+# dependencies
+/node_modules
+/npm-debug.log*
+/yarn-error.log
+/yarn.lock
+/package-lock.json
+# misc
+.DS_Store
+
+/coverage
+.idea
+yarn.lock
+package-lock.json
+*bak
+jsconfig.json
+.vscode
+
+# visual studio code
+.history
+*.log
+*.jsx
+
+functions/mock
+.temp/**
+
+# umi
+.umi
+.umi-production
