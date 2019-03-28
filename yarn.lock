@@ -2209,6 +2209,11 @@ v8flags@^2.1.1:
   dependencies:
     user-home "^1.1.1"
 
+webpack-node-externals@^1.7.2:
+  version "1.7.2"
+  resolved "http://registry.npm.taobao.org/webpack-node-externals/download/webpack-node-externals-1.7.2.tgz#6e1ee79ac67c070402ba700ef033a9b8d52ac4e3"
+  integrity sha1-bh7nmsZ8BwQCunAO8DOpuNUqxOM=
+
 wide-align@^1.1.0:
   version "1.1.3"
   resolved "http://registry.npm.taobao.org/wide-align/download/wide-align-1.1.3.tgz#ae074e6bdc0c14a431e804e624549c633b000457"

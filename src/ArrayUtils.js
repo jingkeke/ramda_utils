@@ -1,5 +1,8 @@
 import * as R from 'ramda';
-import { isNotNil, merge } from './ObjUtils';
+import {
+  isNotNil,
+  merge
+} from './ObjUtils';
 /*
 返回无重复的列表 ,元素通过 predicate 进行相同性判断。如果通过 predicate 判断两元素相同，保留第一个元素。
 aa = [{name:"1"},{name:"2"},{name:"4"},{name:"4"}]
@@ -92,6 +95,43 @@ export function ArrObjMerge_AttributsFirst(added = {}, arr = []) {
  * @constructor
  */
 export function arrTake(num, arr = []) {
+  return R.take(num, arr);
+}
+
+/**
+ *初始化第二个silder 数据 ，附加一些信息
+ */
+
+export function addSomeAttrs(mergeFun, initArray = []) {
+  return R.compose(R.map(mergeFun))(initArray);
+}
+
+/**
+ * 返回给定对象所有可枚举的、自身属性的属性名组成的列表
+ * R.keys({a: 1, b: 2, c: 3}); //=> ['a', 'b', 'c']
+ * @param arr
+ * @returns {*}
+ */
+export function getArrayKeys(arr) {
+  return R.keys(arr);
+}
+
+/**
+ * 返回给定对象所有可枚举的、自身属性的属性名组成的列表
+ * R.keys({a: 1, b: 2, c: 3}); //=> ['a', 'b', 'c']
+ * @param arr
+ * @returns {*}
+ */
+export function getArrayValues(arr) {
+  return R.keys(arr);
+}
+
+/**
+ * 取出前n个
+ * @param num
+ * @returns {void|*}
+ */
+export function arrtake(num, arr) {
   return R.take(num, arr);
 }
 

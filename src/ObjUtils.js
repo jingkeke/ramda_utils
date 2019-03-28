@@ -62,7 +62,14 @@ export function isNotEmpty(obj) {
 export function getObjectVariables(vars, themeVariables) {
   return R.pick(vars)(themeVariables);
 }
-
+/**
+ * 合并两个对象的自身属性（不包括 prototype 属性）
+ * R.merge({ 'name': 'fred', 'age': 10 }, { 'age': 40 });
+ //=> { 'name': 'fred', 'age': 40 }
+ * @param obj1
+ * @param obj2
+ * @returns {*|ut|Un|{}}
+ */
 export function merge(added, obj) {
   return R.merge(added)(obj);
 }
