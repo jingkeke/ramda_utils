@@ -1,10 +1,8 @@
 # dependencies
 /node_modules
-/npm-debug.log*
-/yarn-error.log
-/yarn.lock
+
 /package-lock.json
-!/lib
+/lib
 # misc
 .DS_Store
 
@@ -18,7 +16,6 @@ jsconfig.json
 
 # visual studio code
 .history
-*.log
 *.jsx
 
 functions/mock
@@ -34,7 +31,6 @@ logs
 *.log
 npm-debug.log*
 yarn-debug.log*
-yarn-error.log*
 
 # Runtime data
 pids
