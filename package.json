@@ -1,9 +1,9 @@
 {
   "name": "ramda_util",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "ramda use summary personally ,publishing making me easy to use newest in diffent projects",
   "files": [
-    "lib"
+    "lib","src"
   ],
   "main": "lib/index.js",
   "scripts": {
