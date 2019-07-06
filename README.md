@@ -7,6 +7,13 @@
 import {ArrayUtils } from 'ramda_util/lib'
 const result = ArrayUtils.mergeWith([1,2,3],[2,3,4])
 console.log(` ${JSON.stringify(result,null,4)}`)
+
+// 发布文件改成   "files": [ "lib", "src" ],后打包文件包括src,也可以想下面这样引用了.
+
+import {  ArrayUtils} from 'ramda_util'
+const aa = [{ name: '1' }, { name: '2' }, { name: '4' }, { name: '4' }]
+console.log(`uniqBy: ${JSON.stringify(ArrayUtils.uniqBy('name', aa),null,4)}`)
+
 ```
 ### 自动化测试 
 参考 [jest][jesto]
