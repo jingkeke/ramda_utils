@@ -30,7 +30,7 @@ npm publish
 - 技巧
 
 [jesto]:https://jestjs.io/docs/zh-Hans/24.6/getting-started
-[npmPub]:https://www.jingzy.top/2019/06/25/npm_publish/
+[npmPub]:https://www.jingzy.top/2019/07/15/npm_publish/
 
 - 支持 "@babel/plugin-proposal-optional-chaining"
  ```

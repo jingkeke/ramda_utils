@@ -25,9 +25,9 @@ export function getWeekStart(date, format = 'MM-DD') {
  * @param {*} date2 
  * @param {*} unit 
  */
-export function dateMinus(date1,date2,unit){
-
-    const date11 = dayjs(date1)
-    const date22 = dayjs(date2) 
-   return  date1.diff(date2, 'hours') // 7
-}
+export function dateMinus(date1,date2,unit='hour'){
+ 
+        const date11 = dayjs(date1)
+        const date22 = dayjs(date2)
+        return date11.diff(date22, unit) // 7
+    },
