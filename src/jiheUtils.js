@@ -30,10 +30,10 @@ export function getProvinceName(regionData, code) {
     regionData.forEach(x => map_provices.set(x.value, x.label))
     const map_city = new Map()
     const bb = regionData.reduce((arr, current) => arr.concat(current.children || []), [])
-    bb.map(x => map_city.set(x ?.value, x ?.label))
+    bb.map(x => map_city.set(x?.value, x?.label))
     const map_Country = new Map()
     const cc = bb.reduce((arr, current) => arr.concat(current.children || []), [])
-    cc.map(x => map_Country.set(x ?.value, x ?.label))
+    cc.map(x => map_Country.set(x?.value, x?.label))
 
     return map_Country[code]
 
