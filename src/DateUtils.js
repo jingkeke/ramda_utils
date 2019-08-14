@@ -4,6 +4,10 @@ export function currentday(format = 'YYYY-MM-DD HH:mm:ss') {
     return dayjs().format(format);
 }
 
+export function formatDate(date, format = 'YYYY-MM-DD HH:mm:ss') {
+    return dayjs(date).format(format);
+}
+
 /**
  * 返回年/月/周/  的第一天日期
  * ref http://momentjs.cn/docs/#/manipulating/start-of/
@@ -31,3 +35,7 @@ export function dateMinus(date1,date2,unit='hour'){
         const date22 = dayjs(date2)
         return date11.diff(date22, unit) // 7
     }
+
+export  function daysBefore(num,unit='day') {
+  return   dayjs().subtract(1, unit)
+}
