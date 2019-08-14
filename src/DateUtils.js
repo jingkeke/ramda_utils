@@ -37,5 +37,5 @@ export function dateMinus(date1,date2,unit='hour'){
     }
 
 export  function daysBefore(num,unit='day') {
-  return   dayjs().subtract(1, unit)
+  return   dayjs().subtract(num, unit)
 }
