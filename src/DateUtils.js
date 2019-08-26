@@ -30,4 +30,4 @@ export function dateMinus(date1,date2,unit='hour'){
         const date11 = dayjs(date1)
         const date22 = dayjs(date2)
         return date11.diff(date22, unit) // 7
-    },
+    }
