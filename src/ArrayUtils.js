@@ -188,6 +188,7 @@ export function arraySymmetricDifference(arr1, arr2) {
 
 /**
  * changedValueArr 的值合并到originArrobj中 i值一样针对高分
+ * 见 tests目录里面的测试!!!!!!!
  * @param changedValueArr
  * @param originArrobj
  */
@@ -212,4 +213,20 @@ export function mergeArrayValu(changedValueArr, originArrobj) {
       );
     }
   }
+  return originArrobj;
+}
+
+/**
+ * 按照字段分组数组
+ * @param field 字段名 string
+ * @param array
+ * @returns {[]}
+ */
+export function groupByField(field, array) {
+  const bb = new Set(array.map(x => x[field]))
+  const ee = []
+  for (const cc of bb) {
+    ee.push({ id: cc, children: array.filter(x => x[field]=== cc) })
+  }
+  return ee
 }
