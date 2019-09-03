@@ -1,7 +1,8 @@
 import moment from 'moment';
 
 export function currentday(format = 'YYYY-MM-DD HH:mm:ss') {
-    return moment().utcOffset(480)format(format);
+    //解决 Moment 格式化时间出现时区差的问题
+    return moment().utcOffset(480).format(format);
 }
 
 export function formatDate(date, format = 'YYYY-MM-DD HH:mm:ss') {
@@ -15,7 +16,7 @@ export function formatDate(date, format = 'YYYY-MM-DD HH:mm:ss') {
  * @param format
  */
 function getStart(date, start = 'week', format = 'MM-DD') {
-    moment().utcOffset(480)startOf('week');
+    moment().utcOffset(480).startOf('week');
 
 }
 
@@ -35,9 +36,10 @@ export function dateMinus(date1,date2,unit='hour'){
         const date22 = moment(date2)
         return date11.diff(date22, unit) // 7
     }
+// 测试这样才是东八区得.........  const startTime = DateUtils.formatDate(DateUtils.daysBefore(hour, 'hour'), 'YYYY-MM-DDTHH:mm:ssZ')
 
 export  function daysBefore(num,unit='day') {
-  return   moment().utcOffset(480)subtract(num, unit)
+  return   moment().utcOffset(480).subtract(num, unit)
 }
 
 /**
