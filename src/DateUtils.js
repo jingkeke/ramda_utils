@@ -1,11 +1,11 @@
-import dayjs from 'dayjs';
+import moment from 'moment';
 
 export function currentday(format = 'YYYY-MM-DD HH:mm:ss') {
-    return dayjs(new Date()).format(format);
+    return moment().utcOffset(480)format(format);
 }
 
 export function formatDate(date, format = 'YYYY-MM-DD HH:mm:ss') {
-    return dayjs(date).format(format);
+    return moment(date).format(format);
 }
 
 /**
@@ -15,7 +15,7 @@ export function formatDate(date, format = 'YYYY-MM-DD HH:mm:ss') {
  * @param format
  */
 function getStart(date, start = 'week', format = 'MM-DD') {
-    dayjs(new Date()).startOf('week');
+    moment().utcOffset(480)startOf('week');
 
 }
 
@@ -24,20 +24,20 @@ export function getWeekStart(date, format = 'MM-DD') {
 }
 /**
  * 两数相减
- * https://github.com/iamkun/dayjs/blob/dev/docs/en/API-reference.md#subtract-subtractvalue-number-unit-string
+ * https://github.com/iamkun/moment/blob/dev/docs/en/API-reference.md#subtract-subtractvalue-number-unit-string
  * @param {*} date1
  * @param {*} date2
  * @param {*} unit
  */
 export function dateMinus(date1,date2,unit='hour'){
 
-        const date11 = dayjs(date1)
-        const date22 = dayjs(date2)
+        const date11 = moment(date1)
+        const date22 = moment(date2)
         return date11.diff(date22, unit) // 7
     }
 
 export  function daysBefore(num,unit='day') {
-  return   dayjs(new Date()).subtract(num, unit)
+  return   moment().utcOffset(480)subtract(num, unit)
 }
 
 /**
