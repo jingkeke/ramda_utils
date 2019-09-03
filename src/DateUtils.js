@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 
 export function currentday(format = 'YYYY-MM-DD HH:mm:ss') {
-    return dayjs().format(format);
+    return dayjs(new Date()).format(format);
 }
 
 export function formatDate(date, format = 'YYYY-MM-DD HH:mm:ss') {
@@ -15,7 +15,7 @@ export function formatDate(date, format = 'YYYY-MM-DD HH:mm:ss') {
  * @param format
  */
 function getStart(date, start = 'week', format = 'MM-DD') {
-    dayjs().startOf('week');
+    dayjs(new Date()).startOf('week');
 
 }
 
@@ -37,7 +37,7 @@ export function dateMinus(date1,date2,unit='hour'){
     }
 
 export  function daysBefore(num,unit='day') {
-  return   dayjs().subtract(num, unit)
+  return   dayjs(new Date()).subtract(num, unit)
 }
 
 /**

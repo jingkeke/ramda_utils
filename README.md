@@ -19,6 +19,8 @@ console.log(`uniqBy: ${JSON.stringify(ArrayUtils.uniqBy('name', aa),null,4)}`)
 参考 [jest][jesto]
 ```
 yarn test
+# 指定文件
+yarn test  common.test.js
 ```
 ### 发布 
 具体写在我的[blog][npmPub] 如果访问不了估计是我做了修改,然后路径变了.....
