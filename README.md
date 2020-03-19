@@ -27,6 +27,8 @@ yarn test  common.test.js
 ```bash
 #修改代码和readme.md后,执行下面命令就不用手工改版本号了.
 npm  version patch
+# 预先看要发布哪些文件
+npm pack
 # 发布
 npm publish
 ```
