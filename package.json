@@ -10,6 +10,7 @@
   "scripts": {
     "11prepublish": "node_modules/babel-cli/bin/babel.js src  lib",
     "compile": "babel -d lib/ src/",
+    "father:build": "npx umi-lib build --esm --cjs",
     "prepublish": "npm run compile",
     "server": "node app.babel.js",
     "test": "jest"
@@ -36,8 +37,10 @@
     "@babel/runtime": "^7.5.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
-    "moment": "^2.24.0",
     "ramda": "^0.26.1"
+  },
+  "peerDependencies": {
+    "moment": "^2.24.0"
   },
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.5.0",

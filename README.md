@@ -23,6 +23,8 @@ yarn test
 yarn test  common.test.js
 ```
 ### 发布 
+
+
 具体写在我的[blog][npmPub] 如果访问不了估计是我做了修改,然后路径变了.....
 ```bash
 #修改代码和readme.md后,执行下面命令就不用手工改版本号了.
@@ -47,3 +49,8 @@ npm publish
   "plugins": ["@babel/plugin-proposal-optional-chaining"],
 
  ```
+#### 打包 使用 [fatherjsV2](https://github.com/umijs/father/tree/2.x)
+```
+yarn add umi-library -D
+npx umi-lib build  --esm --cjs
+```
