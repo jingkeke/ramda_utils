@@ -4,7 +4,7 @@ import * as ObjectUtils from './ObjUtils';
 import * as DateUtils from './DateUtils';
 import * as jiheUtils from './jiheUtils';
 
-import * as R from 'ramda';
+import * as ramda from 'ramda';
 
 
-export { ArrayUtils, domOper, ObjectUtils, DateUtils, jiheUtils,R,ramda:R };
+export { ArrayUtils, domOper, ObjectUtils, DateUtils, jiheUtils,ramda };
