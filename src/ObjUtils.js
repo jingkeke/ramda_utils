@@ -56,7 +56,7 @@ export function isNotEmpty(obj) {
 /**
  *  R.pick(['a', 'd'], {a: 1, b: 2, c: 3, d: 4}); //=> {a: 1, d: 4}
  * @param vars
- * @param themeVariables
+ * @param themeVariablse
  * @returns {*}
  */
 export function getObjectVariables(vars, themeVariables) {

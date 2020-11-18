@@ -1,8 +1,17 @@
-import moment from 'moment';
+import moment from 'dayjs';
 
+    /**
+     *   before use momentJs 
+    // return moment().utcOffset(480).format(format); //解决 Moment 格式化时间出现时区差的问题
+     * @param {*} format 
+     */
 export function currentday(format = 'YYYY-MM-DD HH:mm:ss') {
-    //解决 Moment 格式化时间出现时区差的问题
-    return moment().utcOffset(480).format(format);
+ // dayjs timezone ref https://day.js.org/docs/zh-CN/plugin/timezone#docsNav
+ // var utc = require('dayjs/plugin/utc') // dependent on utc plugin
+// var timezone = require('dayjs/plugin/timezone')
+// dayjs.extend(utc)
+// dayjs.extend(timezone)
+    return moment().format(format);
 }
 
 export function formatDate(date, format = 'YYYY-MM-DD HH:mm:ss') {
@@ -16,7 +25,8 @@ export function formatDate(date, format = 'YYYY-MM-DD HH:mm:ss') {
  * @param format
  */
 function getStart(date, start = 'week', format = 'MM-DD') {
-    moment().utcOffset(480).startOf('week');
+    // moment().utcOffset(480).startOf('week');
+   return  formatDate(moment(date).startOf('week'),format );
 
 }
 
