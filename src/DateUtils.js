@@ -1,5 +1,5 @@
 import moment from 'dayjs';
-
+moment.locale('zh-cn');
     /**
      *   before use momentJs 
     // return moment().utcOffset(480).format(format); //解决 Moment 格式化时间出现时区差的问题
@@ -49,8 +49,42 @@ export function dateMinus(date1,date2,unit='hour'){
 // 测试这样才是东八区得.........  const startTime = DateUtils.formatDate(DateUtils.daysBefore(hour, 'hour'), 'YYYY-MM-DDTHH:mm:ssZ')
 
 export  function daysBefore(num,unit='day') {
-  return   moment().utcOffset(480).subtract(num, unit)
+//   return   moment().utcOffset(480).subtract(num, unit)
+  return   moment().subtract(num, unit)
 }
+
+/** 
+ * ref https://www.cyanhall.com/cn/cheatsheet/18.javascript-date-time-cheatsheet/
+ * type days weeks months
+ */
+/**
+ * 
+ * @param {*} number 
+ * @param {*} unit   days: weeks: months
+ * @param {*} beginDate 
+ */
+export function daysAddByNum(num,unit='days',beginDate){
+    if(beginDate){
+        return moment(beginDate).add(num,unit)
+    }
+   return  moment().add(num,unit)
+}
+
+export function daysSubtractByNum(num,unit='days',beginDate){
+    if(beginDate){
+        return moment(beginDate).subtract(num,unit)
+    }
+    
+   return  moment().subtract(num,unit)
+}
+import 'dayjs/locale/zh-cn.js' // load on demand
+// moment.locale('zh-cn') // locale globally
+export function i18nToChinese(format='MMM',date){
+  
+return    moment(date).locale('zh-cn').format("MMM") // locale in a specific instance
+}
+
+
 
 /**
  * Parse the time to string

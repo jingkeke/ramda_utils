@@ -14,5 +14,15 @@ test('week first date ',()=>{
 })
 test('时区问题 ',()=>{
     console.log(dateU.currentday())
-
 })
+test("add num ",()=>{
+  const day = dateU.daysAddByNum(2,'days',new Date('2020-12-07'))
+  
+  expect( dateU.formatDate(day,'YYYY-MM-DD')   ).toBe('2020-12-09')
+  })
+  test('i18n',()=>{
+    const day = dateU.daysAddByNum(2,'days',new Date('2020-12-07'))
+   expect(dateU.i18nToChinese(day)).toBe('12月') 
+  
+  })
+  
