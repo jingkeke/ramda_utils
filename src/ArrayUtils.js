@@ -230,3 +230,47 @@ export function groupByField(field, array) {
   }
   return ee
 }
+
+
+/**
+ * 
+ * @param {*} arr 
+ * @param {*} index1 
+ * @param {*} index2 
+ */
+
+// npm :array-move
+
+//arrayMove([].concat(dataSource), oldIndex, newIndex)
+
+
+
+//js 数组改变 位置 排序 
+// switch 2
+export function swapArr(arr, index1, index2) {
+  arr[index1] = arr.splice(index2, 1, arr[index1])[0];
+  return arr;
+}
+
+// toTop
+export function arrToFirst(arr, index) {
+  if (index !== 0) {
+    arr.unshift(arr.splice(index, 1)[0]);
+  }
+}
+//up -1
+export function arrToUp(arr, index) {
+  if (index !== 0) {
+    arr[index] = arr.splice(index - 1, 1, arr[index])[0];
+  } else {
+    arr.push(arr.shift());
+  }
+}
+// down -1
+export function arrToDown(arr, index) {
+  if (index !== arr.length - 1) {
+    arr[index] = arr.splice(index + 1, 1, arr[index])[0];
+  } else {
+    arr.unshift(arr.splice(index, 1)[0]);
+  }
+}
