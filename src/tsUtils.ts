@@ -30,17 +30,16 @@ const aaa: ToggleableComponentProps = {
     length: 112,
 }
 
-class Greeter<T> {
-    static ofType<T extends string>() {
-        return Greeter as Constructor<Greeter<T>>
-    }
-    greeting: T
-    constructor(message: T) {
-        this.greeting = message
-    }
-    greet() {
-        return this.greeting
-    }
-}
+// class Greeter<T> {
+//     static ofType<T extends string>() {
+//         return Greeter as constructor<Greeter<T>>
+//     }
+//     greeting: T
+//     constructor(message: T) {
+//         this.greeting = message
+//     }
+//     greet() {
+//         return this.greeting
+//     }
+// }
 
-let greeter = Greeter.ofType<string>()

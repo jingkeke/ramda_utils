@@ -1,7 +1,8 @@
 # ramda_utils
 [ramda函数式编程库](https://adispring.coding.me/2017/10/21/What-Function-Should-I-Use/) use summary persionally,and make it easy to use in diffent project.
 
-
+## eslint config 
+ref   https://github.com/wesbos/eslint-config-wesbos
 ### use
 ``` js
 import {ArrayUtils } from 'ramda_util/lib'

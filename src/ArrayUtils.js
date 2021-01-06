@@ -1,8 +1,6 @@
+/* eslint-disable prefer-destructuring */
 import * as R from 'ramda';
-import {
-  isNotNil,
-  merge
-} from './ObjUtils';
+import { isNotNil, merge } from './ObjUtils';
 /*
 返回无重复的列表 ,元素通过 predicate 进行相同性判断。如果通过 predicate 判断两元素相同，保留第一个元素。
 aa = [{name:"1"},{name:"2"},{name:"4"},{name:"4"}]
@@ -223,29 +221,26 @@ export function mergeArrayValu(changedValueArr, originArrobj) {
  * @returns {[]}
  */
 export function groupByField(field, array) {
-  const bb = new Set(array.map(x => x[field]))
-  const ee = []
+  const bb = new Set(array.map((x) => x[field]));
+  const ee = [];
   for (const cc of bb) {
-    ee.push({ id: cc, children: array.filter(x => x[field]=== cc) })
+    ee.push({ id: cc, children: array.filter((x) => x[field] === cc) });
   }
-  return ee
+  return ee;
 }
 
-
 /**
- * 
- * @param {*} arr 
- * @param {*} index1 
- * @param {*} index2 
+ *
+ * @param {*} arr
+ * @param {*} index1
+ * @param {*} index2
  */
 
 // npm :array-move
 
-//arrayMove([].concat(dataSource), oldIndex, newIndex)
+// arrayMove([].concat(dataSource), oldIndex, newIndex)
 
-
-
-//js 数组改变 位置 排序 
+// js 数组改变 位置 排序
 // switch 2
 export function swapArr(arr, index1, index2) {
   arr[index1] = arr.splice(index2, 1, arr[index1])[0];
@@ -258,7 +253,7 @@ export function arrToFirst(arr, index) {
     arr.unshift(arr.splice(index, 1)[0]);
   }
 }
-//up -1
+// up -1
 export function arrToUp(arr, index) {
   if (index !== 0) {
     arr[index] = arr.splice(index - 1, 1, arr[index])[0];
