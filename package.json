@@ -1,6 +1,6 @@
 {
   "name": "ramda_util",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "ramda use summary personally ,publishing making me easy to use newest in diffent projects",
   "files": [
     "dist",
@@ -12,7 +12,7 @@
   "unpkg": "./dist/index.umd.js",
   "scripts": {
     "lint": "eslint .",
-  "lint:fix": "eslint . --fix",
+    "lint:fix": "eslint . --fix",
     "doc:dev": "father  doc dev",
     "doc:build": "father  doc build",
     "build": "father  build",
