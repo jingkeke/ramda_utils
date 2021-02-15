@@ -53,5 +53,11 @@
     "father": "^2.30.1",
     "jest": "^24.8.0",
     "prettier": "^2.1.1"
+  },
+   "eslintConfig": {
+    "extends": "eslint-config-wesbos/typescript.js",
+    "parserOptions": {
+      "project": "./tsconfig.json"
+    }
   }
 }

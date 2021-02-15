@@ -1,8 +1,8 @@
 
 // 上面的测试
 const test = <T extends object>(a: T): T => {
-    a = a
-    return a
+        a = a
+                return a
 }
 const test2 = <T extends object>(a: T) => {
     return a
@@ -42,4 +42,3 @@ const aaa: ToggleableComponentProps = {
 //         return this.greeting
 //     }
 // }
-

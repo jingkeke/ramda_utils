@@ -51,8 +51,10 @@ npm publish
  ```
 #### 打包 使用 [fatherjsV2](https://github.com/umijs/father/tree/2.x)
 ```
-yarn add umi-library -D
-npx umi-lib build  --esm --cjs
+yarn add father  -D
+npx father build  --esm --cjs
 ```
 #### eslint config 
-ref  [eslint-config-wesbos](https://github.com/wesbos/eslint-config-wesbos) 
+ref  [eslint-config-wesbos](https://github.com/wesbos/eslint-config-wesbos)
+- typescript config  https://github.com/wesbos/eslint-config-wesbos/issues/68
+npx install-peerdeps --dev eslint-config-wesbos@2.0.0-beta.3

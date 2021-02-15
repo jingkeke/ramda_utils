@@ -1,13 +1,13 @@
 /* eslint-disable prefer-destructuring */
-import * as R from 'ramda';
-import { isNotNil, merge } from './ObjUtils';
+import * as R from "ramda";
+import { isNotNil, merge } from "./ObjUtils";
 /*
 返回无重复的列表 ,元素通过 predicate 进行相同性判断。如果通过 predicate 判断两元素相同，保留第一个元素。
 aa = [{name:"1"},{name:"2"},{name:"4"},{name:"4"}]
 uniqBy('name',aa)
  */
 
-export function uniqBy(attribute = '', array = []) {
+export function uniqBy(attribute = "", array = []) {
   return R.uniqWith(R.eqBy(R.prop(attribute)))(array);
 }
 
@@ -139,7 +139,7 @@ export function arrtake(num, arr) {
  * @param x
  * @returns {boolean}
  */
-export function isArrayObjHave(arr, x, field = 'menuName') {
+export function isArrayObjHave(arr, x, field = "menuName") {
   const selectedDetail = R.find(R.propEq(field, x))(arr);
   return !!isNotNil(selectedDetail);
 }
