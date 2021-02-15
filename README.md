@@ -17,6 +17,8 @@ console.log(`uniqBy: ${JSON.stringify(ArrayUtils.uniqBy('name', aa),null,4)}`)
 ```
 ### 自动化测试 
 参考 [jest][jesto]
+换了webos 和fatherjs 后 jest 有问题 *Cannot use import statement outside a module* 
+然后现在改成 引用打包之后的 lib里面的文件测试 ..... 2021年2月15日
 ```
 yarn test
 # 指定文件
