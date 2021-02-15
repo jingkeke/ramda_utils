@@ -8,7 +8,7 @@ const dateOptions = {
 };
 
 const year = date.toLocaleDateString('en-US', dateOptions);
-const dateU = require('../../src/DateUtils');
+const dateU = require('../../lib/DateUtils');
 
 test('week first date ', () => {
   expect(dateU.currentday('YYYY')).toBe(year);

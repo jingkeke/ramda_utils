@@ -1,9 +1,16 @@
 {
-  "extends": "eslint-config-wesbos/tsconfig.json",
+  // "extends": "eslint-config-wesbos/tsconfig.json",
   "include": [
     "**/*"
   ],
   "compilerOptions": {
+    "module": "commonjs",
+    "lib": [
+      "ES6"
+    ],
+    "isolatedModules": true,
+    "strict": true,
+    "noEmit": true,
     "noImplicitAny": false,
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
     /* Basic Options */

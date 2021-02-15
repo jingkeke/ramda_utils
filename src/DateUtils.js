@@ -35,7 +35,7 @@ export function getWeekStart(date, format = 'MM-DD') {
   return getStart(date, 'week', format);
 }
 /**
- * 两数相减
+ * 两数相i18nToChinesei18nToChinese减
  * https://github.com/iamkun/moment/blob/dev/docs/en/API-reference.md#subtract-subtractvalue-number-unit-string
  * @param {*} date1
  * @param {*} date2
@@ -78,8 +78,8 @@ export function daysSubtractByNum(num, unit = 'days', beginDate) {
   return moment().subtract(num, unit);
 } // load on demand
 // moment.locale('zh-cn') // locale globally
-export function i18nToChinese(format = 'MMM', date) {
-  return moment(date).locale('zh-cn').format('MMM'); // locale in a specific instance
+export function i18nToChinese( date,format = 'MMM') {
+  return moment(date).locale('zh-cn').format(format); // locale in a specific instance
 }
 
 /**

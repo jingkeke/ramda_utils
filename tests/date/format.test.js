@@ -1,7 +1,7 @@
 /**
  * Created by Jzy on 2019/7/6 09
  */
-const dateU = require('../../src/DateUtils');
+const dateU = require('../../lib/DateUtils');
 
 const date = new Date();
 // DATE

@@ -1,4 +1,4 @@
-const dateU = require('../../src/DateUtils');
+const dateU = require('../../lib/DateUtils');
 
 const { parseTime } = dateU;
 describe('Utils:parseTime', () => {

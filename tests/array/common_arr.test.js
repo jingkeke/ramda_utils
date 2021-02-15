@@ -1,7 +1,7 @@
 /**
  * Created by Jzy on 2019/9/3 09
  */
-const arrayU = require('../../src/ArrayUtils');
+const arrayU = require('../../lib/ArrayUtils');
 
 test('安装字段i是否相等,合并对象数组', () => {
   expect(
