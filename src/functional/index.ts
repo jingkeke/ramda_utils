@@ -1,6 +1,7 @@
 //  from https://observablehq.com/@anjana/exercise-filter-map-reduce?collection=@anjana/functional-javascript-first-steps
 //  frontend master function-first-steps
 
+//***************  map
 // Concatenate two arrays into a new single array
 function concat(array1, array2) {
   return array1.concat(array2);
@@ -38,4 +39,25 @@ export function reduce(reducerFn, initialValue, array) {
   if (length(array) === 0) return initialValue;
   const newInitialValue = reducerFn(initialValue, head(array));
   return reduce(reducerFn, newInitialValue, tail(array));
+}
+
+/**************   imutation          ****************/
+
+// array
+// also refer  ArrayUtils.js
+//
+// instead of myArray[index] = value
+function update(index, value, array) {
+  //  return a new copy of the array with the given value at index
+
+  return array
+    .slic(0, index - 1)
+    .concat(value)
+    .concat(arrray.slice(index));
+}
+
+// instead of myArray.pop();
+function pop(array) {
+  //  return a new array with the last old element removed
+  return array.slice(0, -1);
 }
