@@ -27,11 +27,11 @@
  */
 
 const tableToExcel = (function () {
-  const uri = 'data:application/vnd.ms-excel;base64,';
+  const uri = "data:application/vnd.ms-excel;base64,";
   const template =
     '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">' +
     '<head><style>tr td{ border:1pt solid darkgray;} tr th{ border:1pt solid darkgray;} </style> <meta http-equiv="Content-type" content="text/html;charset=UTF-8" /><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/>' +
-    '</x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body><table>{table}</table></body></html>';
+    "</x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body><table>{table}</table></body></html>";
   const base64 = function (s) {
     return window.btoa(unescape(encodeURIComponent(s)));
   };
@@ -41,9 +41,10 @@ const tableToExcel = (function () {
 
   return function (table, name) {
     const ctx = {
-      worksheet: name || 'Worksheet',
+      worksheet: name || "Worksheet",
       table: table.innerHTML,
     };
+
     return uri + base64(format(template, ctx));
   };
 })();
