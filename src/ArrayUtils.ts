@@ -1,13 +1,15 @@
-/* eslint-disable prefer-destructuring */
-import * as R from "ramda";
-import { isNotNil, merge } from "./ObjUtils";
+// @ts-nocheck
+import * as R from 'ramda';
+import { isNotNil, merge } from './ObjUtils';
+
 /*
 返回无重复的列表 ,元素通过 predicate 进行相同性判断。如果通过 predicate 判断两元素相同，保留第一个元素。
 aa = [{name:"1"},{name:"2"},{name:"4"},{name:"4"}]
 uniqBy('name',aa)
  */
 
-export function uniqBy(attribute = "", array = []) {
+export function uniqBy (attribute = '', array = []) {
+  // @ts-ignore
   return R.uniqWith(R.eqBy(R.prop(attribute)))(array);
 }
 
@@ -23,7 +25,8 @@ var l2 = [{a: 1}, {a: 4}];
 R.unionWith(R.eqBy(R.prop('a')), l1, l2); //=> [{a: 1}, {a: 2}, {a: 4}]
 */
 
-export function unionWith(prop, arr1, arr2) {
+export function unionWith (prop, arr1, arr2) {
+  // @ts-ignore
   return R.unionWith(R.eqBy(R.prop(`${prop}`)), arr1, arr2);
 }
 /*
@@ -60,6 +63,16 @@ export function getRequireAttributesArr(prop, arr) {
 }
 
 /**
+ * 数组对象 ,提取对象中符合条件的
+ * https://ramda.cn/docs/#propEq
+ * @param attr
+ * @param obj
+ * @returns {*}
+ */
+export function getEqualObjFromArr(prop, val, arr) {
+  return R.find(R.propEq("a", val))(arr);
+}
+/**
  * R.zipObj(['a', 'b', 'c'], [1, 2, 3]); //=> {a: 1, b: 2, c: 3}
 
  * @param arr1
@@ -92,7 +105,7 @@ export function ArrObjMerge_AttributsFirst(added = {}, arr = []) {
  * 取数组前num 个
  * @constructor
  */
-export function arrTake(num, arr = []) {
+export function arrTake (num, arr = []) {
   return R.take(num, arr);
 }
 
@@ -139,7 +152,7 @@ export function arrtake(num, arr) {
  * @param x
  * @returns {boolean}
  */
-export function isArrayObjHave(arr, x, field = "menuName") {
+export function isArrayObjHave (arr, x, field = 'menuName') {
   const selectedDetail = R.find(R.propEq(field, x))(arr);
   return !!isNotNil(selectedDetail);
 }
@@ -269,3 +282,23 @@ export function arrToDown(arr, index) {
     arr.unshift(arr.splice(index, 1)[0]);
   }
 }
+
+/**
+ * @param {Array} arr
+ * @returns {Array}
+ */
+export function uniqueArr(arr) {
+  return Array.from(new Set(arr));
+}
+
+// innnerJoin   从数组对象里面按照id 取值
+// R.innerJoin(
+// (record, id) => record.id === id,
+// [{id: 824, name: 'Richie Furay'},
+//  {id: 956, name: 'Dewey Martin'},
+//  {id: 313, name: 'Bruce Palmer'},
+//  {id: 456, name: 'Stephen Stills'},
+//  {id: 177, name: 'Neil Young'}],
+// [177, 456, 999]
+// );
+// //=> [{id: 456, name: 'Stephen Stills'}, {id: 177, name: 'Neil Young'}]

@@ -5,6 +5,28 @@ export function deepclone(obj) {
 }
 
 /**
+ * This is just a simple version of deep copy
+ * Has a lot of edge cases bug
+ * If you want to use a perfect deep copy, use lodash's _.cloneDeep
+ * @param {Object} source
+ * @returns {Object}
+ */
+// export function deepClone(source) {
+//   if (!source && typeof source !== 'object') {
+//     throw new Error('error arguments', 'deepClone')
+//   }
+//   const targetObj = source.constructor === Array ? [] : {}
+//   Object.keys(source).forEach(keys => {
+//     if (source[keys] && typeof source[keys] === 'object') {
+//       targetObj[keys] = deepClone(source[keys])
+//     } else {
+//       targetObj[keys] = source[keys]
+//     }
+//   })
+//   return targetObj
+// }
+
+/**
  *将对象的键、值交换位置
  *
  *
@@ -56,7 +78,7 @@ export function isNotEmpty(obj) {
 /**
  *  R.pick(['a', 'd'], {a: 1, b: 2, c: 3, d: 4}); //=> {a: 1, d: 4}
  * @param vars
- * @param themeVariablse
+ * @param themeVariables
  * @returns {*}
  */
 export function getObjectVariables(vars, themeVariables) {

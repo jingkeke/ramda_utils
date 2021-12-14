@@ -11,6 +11,7 @@ function length(array) {
   return array.length;
 }
 
+
 function head(array) {
   return array[0];
 }

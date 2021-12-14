@@ -134,7 +134,7 @@ export function parseTime(time, cFormat) {
 // ios 低版本 转换 "2021-03-03T09:39:30.000+0000" 这种时间有问题
 //
 //
-function jianrongLowIOS(dateString) {
+export function jianrongLowIOS(dateString ) {
   // return new Date(dateString)
   let time = json.content_created_time.replace(/-/g, "/");
   time = time.replace(/T/g, " ");

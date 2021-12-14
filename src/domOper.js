@@ -72,6 +72,34 @@ export function getWindowsHeightWidth() {
   };
 }
 
-export function removeDom(el) {
+export function removeDom (el) {
   el.parentNode.removeChild(el);
 }
+
+
+// 成果展 要在天气旁边加上按钮-》点击弹窗-〉然后恶劣天气展示 2021年11月19日上午10:25:58
+// @ts-ignore
+// @ts-nocheck
+export function addReactDom(){
+//    const node = document.getElementById("topweatherimg");
+//  if(!node){
+//    return;
+//  }
+//   const node2 = document.createElement("div");
+//   node.parentNode!.insertBefore(node2, node)
+// // @ts-ignore
+//   ReactDOM.render(<i onClick={() => {
+//     const reloadEvent = new CustomEvent('chenguozhanHW', {
+//       bubbles: true, detail: {
+//         callback: () => {
+//         }
+//       }
+//     })
+//     document.dispatchEvent(reloadEvent)
+//
+//   }}>!!!</i>, node2);
+
+}
+
+
+

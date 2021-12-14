@@ -1,0 +1,66 @@
+// 这里面的感觉只是用于 class 的 比如debounce https://steelsojka.github.io/lodash-decorators/
+
+//
+
+export function debounce(func, delay) {
+  let timeout;
+  return (...args) => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      func(...args);
+    }, delay);
+  };
+}
+
+/**
+ * @param {Function} func
+ * @param {number} wait
+ * @param {boolean} immediate
+ * @return {*}
+ */
+export function debounceV(func, wait, immediate) {
+  let timeout, args, context, timestamp, result
+
+  const later = function() {
+    // 据上一次触发时间间隔
+    const last = +new Date() - timestamp
+
+    // 上次被包装函数被调用时间间隔 last 小于设定时间间隔 wait
+    if (last < wait && last > 0) {
+      timeout = setTimeout(later, wait - last)
+    } else {
+      timeout = null
+      // 如果设定为immediate===true，因为开始边界已经调用过了此处无需调用
+      if (!immediate) {
+        result = func.apply(context, args)
+        if (!timeout) context = args = null
+      }
+    }
+  }
+
+  return function(...args) {
+    context = this
+    timestamp = +new Date()
+    const callNow = immediate && !timeout
+    // 如果延时不存在，重新设定延时
+    if (!timeout) timeout = setTimeout(later, wait)
+    if (callNow) {
+      result = func.apply(context, args)
+      context = args = null
+    }
+
+    return result
+  }
+}
+// import { throttle,debounce } from 'throttle-debounce'
+
+// const showDivPoint_throttle = throttle(1000, showDivPoint)
+
+// const debounce_flyTo = debounce(1500, flyTo)
+
+// debounce way 4
+
+// https://lodash.com/
+// const _ = require('lodash')
+
+// const debounce_flyTo = _.debounce(flyTo, 1500)

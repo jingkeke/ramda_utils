@@ -8,5 +8,4 @@ first is write when i was firstly learn react, then i move from git to here so m
 
 ## 函数式编程
 
-ttps://www.gitbook.com/book/llh911001/mostly-adequate-guide-chinese/details
-
+https://www.gitbook.com/book/llh911001/mostly-adequate-guide-chinese/details
