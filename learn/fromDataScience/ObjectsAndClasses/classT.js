@@ -92,3 +92,50 @@ const example = new Pipeline(new Filter('a', 'e', 'i', 'o', 'u'),
 for (let value of ['a' ,'b', 'c', 'd', 'e']) {
   console.log(value, '->', example.call(value))
 }
+
+
+
+
+// Active 
+//
+
+ class Active {
+   static transform(input){
+
+     console.log('default transform:',input)
+     return input ;
+   }
+
+  constructor (name, transform) {
+    this.name = name
+    this.transform = transform || Active.transform
+    this.subscribers = []
+  }
+
+  subscribe (someone) {
+    this.subscribers.push(someone)
+  }
+
+  update (input) {
+    console.log(this.name, 'got', input)
+    const output = this.transform(input)
+    for (let s of this.subscribers) {
+      s.update(output)
+    }
+  }
+}
+
+
+
+
+const start = new Active('start', (x) => Math.min(x, 10))
+const left = new Active('left', (x) => 2 * x)
+const right = new Active('right', (x) => x + 1)
+// const final = new Active('final', (x) => x)
+const final = new Active('final', )
+start.subscribe(left)
+start.subscribe(right)
+left.subscribe(final)
+right.subscribe(final)
+
+start.update(123)
