@@ -54,7 +54,7 @@ function update(index, value, array) {
   return array
     .slic(0, index - 1)
     .concat(value)
-    .concat(arrray.slice(index));
+    .concat(array.slice(index));
 }
 
 // instead of myArray.pop();

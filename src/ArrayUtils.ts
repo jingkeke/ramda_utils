@@ -302,3 +302,40 @@ export function uniqueArr(arr) {
 // [177, 456, 999]
 // );
 // //=> [{id: 456, name: 'Stephen Stills'}, {id: 177, name: 'Neil Young'}]
+
+
+// const b =  [
+//   {
+//     "enumValue": "01",
+//     "enumtypeId": 1110,
+//     "enumName": "交通拥堵"
+//   },
+//   {
+//     "enumValue": "02",
+//     "enumtypeId": 1110,
+//     "enumName": "交通违法"
+//   },
+//   {
+//     "enumValue": "02",
+//     "enumtypeId": 1112,
+//     "enumName": "交通违法"
+//   },
+// ]
+//
+// const [a,c ]=getEnum(b, [1110,1112])
+// console.debug("debug:: 😈","app.tsx",":", "58" , "11:05 AM",  a,c )
+
+export function getEnum (dataList,keysList){
+  const resultArr=[]
+  keysList.forEach((key,i)=>{
+    const re=  R.filter(R.propEq('enumtypeId', key))(dataList);
+    resultArr.push(re)
+  })
+  //todo 优化是用innerJoin  groupBy
+ // const result= R.groupBy((a,b)=>a.enumtypeId==b.enumtypeId,   R.innerJoin((record,id)=>record.enumtypeId==id ,
+ //  dataList,keysList
+ //  ) )
+
+  return  resultArr
+}
+
