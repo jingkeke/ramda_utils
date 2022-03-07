@@ -7,3 +7,6 @@ import * as jiheUtils from "./jiheUtils";
 export {* } from './FuncUtils.ts';
 
 export { ArrayUtils, domOper, ObjectUtils, DateUtils, jiheUtils, ramda };
+
+// 
+export { default as jiheUtils2 } from './jiheUtils';
