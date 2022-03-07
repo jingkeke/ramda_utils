@@ -154,7 +154,7 @@ log(add_ltd(3, 5) )//1 undefined
   //
   //
  
-function from (a){
+function from1 (a){
   
  function  *gen(){while(1){
 
@@ -174,6 +174,22 @@ function from (a){
 
 }
 
+function from (a){
+
+ return function (){
+     
+     let b= a
+     a+=1
+     return b 
+
+ }
+
+
+}
+
+
+
+
 var index = from (0) ;
 log('gen',index() )//0
 log(index()  )// 1
@@ -181,10 +197,80 @@ log(index() )//2
 
 
 
+function to(gener ,end){
+
+    return function(){
+     let val= gener()
+       if(end>val){
+         return val
+       }
+
+      return undefined;
+
+    }
+
+}
+
+
+var index= to(from(1),2);
+
+index()
+index()
+log(index(),'to' )//undefined
 
 
 
+function fromTo(start,end){
 
+  return to(from(start),end)
+
+
+}
+var ft= fromTo(0,2)
+log('fromeTo',ft())
+log('fromeTo',ft())
+log('fromeTo',ft())
+
+function element(arr, gen){
+    if(gen===undefined){
+      gen = fromTo(0 ,arr.length)
+    }
+  return function (){
+     let index = gen()
+    if(index !==undefined){
+      return arr[index]
+    }
+    // return arr[gener()]
+
+  }
+
+
+
+}
+
+function collect(gen ,arr){
+        
+     return function(){
+
+       let v = gen()
+       if(v!==undefined){
+         arr.push(v)
+       }
+       return v
+     }
+
+
+}
+
+
+var array= []
+col= collect(fromTo(0,2),array)
+
+
+col()
+col()
+
+log('coll:',array)
 
 
 
