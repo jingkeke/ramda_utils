@@ -57,7 +57,7 @@ function curry(binary ,first){
 //     };
 // }
 
-log = (...arg)=>console.log(['xx:'].concat( arg))
+log = (...arg)=>console.log([''].concat( arg))
 
 
 //
@@ -156,7 +156,8 @@ log(add_ltd(3, 5) )//1 undefined
  
 function from1 (a){
   
- function  *gen(){while(1){
+ function  *gen(){
+   while(1){
 
        yield a;
 
@@ -226,11 +227,14 @@ function fromTo(start,end){
 
 
 }
-var ft= fromTo(0,2)
+var ft= fromTo(0,5)
+log('fromeTo',ft())
 log('fromeTo',ft())
 log('fromeTo',ft())
 log('fromeTo',ft())
 
+
+// if gen is undefined ,use fromTo 
 function element(arr, gen){
     if(gen===undefined){
       gen = fromTo(0 ,arr.length)
@@ -244,9 +248,20 @@ function element(arr, gen){
 
   }
 
-
-
 }
+
+var ele = element([
+    'a', 'b', 'c', 'd'
+], fromTo(1, 3));
+
+ele()    // 'b'
+ele()    // 'c'
+ele()    // undefined
+
+
+
+
+
 
 function collect(gen ,arr){
         
@@ -276,21 +291,174 @@ log('coll:',array)
 
 
 
+function filter(gen, fun){
+ //   return function(){
+ // let v ;
+ //     do{
+ //      v = gen()
+ //    }while(v!==undefined && !fun(v))
+ //       return v
+ //
+ //   }
+   
+
+  //version 2 tail recursion !!!!!! es6  
+  //https://frontendmasters.com/courses/good-parts-javascript-web/function-challenge-5/ 
+   return function recur (){
+      
+     let v = gen()
+
+     if(v==undefined || fun(v)){
+      return v
+     }
+ return  recur()
+
+   }
+
+}
 
 
 
 
+var fil = filter(fromTo(0, 5), 
+    function third(value) {
+        return (value % 3) === 0;
+    });
+log('filter',fil()  )  // 0
+log(fil())    
+log(fil() )   
+log(fil() )   
+log(fil() )   
+
+
+//https://frontendmasters.com/courses/good-parts-javascript-web/function-challenge-5/
+
+  function concat_V1 (gen1 ,gen2){
+
+       let gen = gen1
+    return function(){
+   
+        let v = gen()
+       
+       if(v!=undefined){
+          return v
+       }
+
+        gen = gen2
+    
+      return gen()
+    }
+
+  }
+
+// !!!! 
+function concat(...gens) {
+
+    var next = element(gens),
+        gen = next();
+    return function recur() {
+        var value = gen();
+        if (value === undefined) {
+            gen = next();
+            if (gen !== undefined) {
+                return recur();
+            }
+        }  
+        return value;
+    };
+}
 
 
 
+var con = concat(fromTo(0, 3),
+    fromTo(0,2));
+log(con(),'concat' )    // 0
+log(con(),'concat' )    // 1
+log(con(),'concat' )    // 2
+log(con(),'concat' )    // 0
+log(con(),'concat' )    // 1
+log(con(),'concat' )    // undefined
 
 
 
+function repeat(gen){
+      
+  // verson 1 
+       //       let var;  
+       //       do{
+       //        val=  gen()
+       //
+       //       } while(val!=undefined) 
+       // 
+       //     
+  //
+    //version 2 j
+          if(gen() !==undefined){
+              repeat(gen) 
+          }
 
 
+}
 
 
+var array = [];
+repeat(collect(fromTo(0, 4), array));
+log(array);    // 0, 1, 2, 3
 
 
+// use repeat 
+function map(array, unary) {
+    var ele = element(array),
+        result = [];
+
+    repeat(collect(function () {
+        var value = ele();
+        if (value !== undefined) {
+            return unary(value);
+        }
+    }, result));
+    return result;
+}
+
+log( map([2, 1, 0], inc),'map',   ) // [3, 2, 1]
+
+// use repeat 
+
+function reduce(array, binary)  {
+    var ele = element(array),
+        result;
+    repeat(function () {
+        var value = ele();
+        if (value !== undefined) {
+            result = result === undefined
+                ? value
+                : binary(result, value);
+        }
+        return value;
+    });
+    return result;
+}
+
+reduce([], add)           // undefined
+reduce([2], add)          // 2
+log('reduce:',reduce([2, 1, 0], add) )   // 3
+
+
+function gensymf(K ){
+    let g = from(1)  
+    return function (){
+        
+    return K+g() 
+
+    }
+
+}
+
+var geng = gensymf("G"),
+    genh = gensymf("H"); 
+geng()      // "G1"
+genh()      // "H1"
+geng()      // "G2"
+log ( "gensymf",genh())      // "H2"
 
 
