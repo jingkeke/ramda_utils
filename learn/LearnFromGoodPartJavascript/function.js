@@ -6,6 +6,7 @@ function mul (first ,second){ return first * second}
 function sub(first,second){ return first - second }
 function doubl(first){ return  Math.doub1(first) } 
 function squre(first){ return  Math.sqrt(first) }
+function square(first){ return  Math.sqrt(first) }
 
 
 function identity(i ){return i }
@@ -460,5 +461,263 @@ geng()      // "G1"
 genh()      // "H1"
 geng()      // "G2"
 log ( "gensymf",genh())      // "H2"
+
+
+
+
+
+
+// function fibonaccif(a, b) {
+//     var i = 0;
+//     return function () {
+//         var next;
+//         switch (i) {
+//         case 0:
+//             i = 1;
+//             return a;
+//         case 1:
+//             i = 2;
+//             return b;
+//         default:
+//             next = a + b;
+//             a = b;
+//             b = next;
+//             return next;
+//         }
+//     };
+// }
+
+// best optimized version
+// function fibonaccif(a, b) {
+//     return function () {
+//         var next = a;
+//         a = b;
+//         b += next;
+//         return next;
+//     };
+// }
+
+//version 2 
+function fibonaccif(a,b){
+
+  return concat( element( [a,b],), 
+     function (){
+           let  tmp 
+            [tmp,a] =[a,b]
+            b= tmp+a 
+          return b
+             
+    }
+  )  
+  
+}
+
+var fib = fibonaccif(0, 1);
+  log('fib',fib())    // 0
+log('',fib())    // 1
+log('',fib())    // 1
+log('',fib())    // 2
+log('',fib())    // 3
+log('',fib())    // 5
+
+
+
+function counter(val){
+   
+ return {
+   up:function(){
+     val +=1;
+     return val
+   },
+   down:function(){
+     val -=1;
+
+     return val
+
+   }
+ }
+
+}
+
+
+var object = counter(10),
+    up = object.up,
+    down = object.down;
+log('counter',up())     // 11
+log('',down())   // 10
+log('',down())   // 9
+log('',up())     // 10
+
+
+function revocable(f){
+   
+  return {
+
+    invoke:function() {
+    
+     if(f!==undefined){
+      return    f()
+      }
+     return undefined
+
+    },
+   revoke :function() {
+
+     f=undefined;
+
+   }
+
+  }
+
+}
+
+//#ilike important!!!! 
+var rev = revocable(add),
+    add_rev = rev.invoke;
+add_rev(3, 4);    // 7
+rev.revoke();
+add_rev(5, 7);    // undefined
+
+
+
+function m(value, source) {
+    return {
+        value: value,
+        source: (typeof source === 'string') 
+            ? source
+            : String(value)
+    };
+}
+
+
+JSON.stringify(m(1))
+// {"value": 1, "source": "1"}
+JSON.stringify(m(Math.PI, "pi"))
+// {"value": 3.14159…, "source": "pi"}
+//
+
+function addm(m1,m2){
+
+  return m(m1.value+m2.value,
+          "("+ m1.source+'+'+ m2.source  +')')
+
+}
+
+  JSON.stringify(addm(m(3), m(4)))
+// {"value": 7, "source": "(3+4)"}
+log('',JSON.stringify(addm(m(1), m(Math.PI, "pi"))))
+// {"value": 4.14159…, "source": "(1+pi)"}
+//
+  //
+
+
+function liftm(f, oper) {
+
+      return function (m1,m2) {
+               
+        return m(f(m1.value,m2.value),
+          "("+ m1.source+ oper +m2.source  +')')
+
+      }
+}
+
+
+var addm = liftm(add, "+");
+
+JSON.stringify(addm(m(3), m(4)))
+// {"value": 7, "source": "(3+4)"}
+JSON.stringify(liftm(mul, "*")(m(3), 
+    m(4)))
+// {"value": 12, "source": "(3*4)"}
+//
+  
+
+
+
+var addm = liftm(add, "+");
+log('',JSON.stringify(addm(3, 4)))
+// {"value": 7, "source": "(3+4)"}
+
+
+
+// function exp(  arr ) {
+//
+//    if(Array.isArray(arr)){
+//      const [f, param] = [arr[0],arr.slice(1) ]
+//      log('exp::' ,param)
+//      return f(exp(...param) )
+//    } 
+//
+//   return arr
+//
+// }
+
+
+// 感觉有难度 ,就是多余的参数传了没影响
+function exp(value) {
+    return (Array.isArray(value))
+        ? value[0](
+            exp(value[1]), 
+            exp(value[2])
+        )
+        : value;
+}
+
+var sae = [mul, 5, 11];
+log('',exp(sae))    // 55
+log('',exp(42))     // 42
+
+
+
+var nae = [
+    Math.sqrt, 
+    [
+        add, 
+        [square, 3], 
+        [square, 4]
+    ]
+];
+log('nested::',exp(nae))    // 5
+
+// 我的版本 有点难度 一开始a 如何存储
+// function addg(val){
+//   //  isnumber
+//  let a = undefined  
+//   function addgN(val){
+//     if(val ===undefined){
+//       tmp  =a 
+//       a= undefined
+//       return tmp  
+//     }
+//     a = ((a===undefined?0:a) +val)
+//     return addgN 
+//   }
+//   return addgN(val)
+//
+// }
+//
+
+function addg(first) {
+    function more(next) {
+        if (next === undefined) {
+            return first;  
+        }  
+        first += next;
+        return more; 
+    }
+    if (first !== undefined) {
+        return more;
+    }
+}
+
+log('',addg())             // undefined
+log('',addg(2)() )         // 2
+log('',addg(2)(7)())       // 9
+log('',addg(3)(0)(4)() )   // 7
+log('',addg(1)(2)(4)(8)() )// 15
+
+
+
+
 
 
