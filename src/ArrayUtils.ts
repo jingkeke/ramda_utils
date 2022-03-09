@@ -325,17 +325,12 @@ export function uniqueArr(arr) {
 // const [a,c ]=getEnum(b, [1110,1112])
 // console.debug("debug:: 😈","app.tsx",":", "58" , "11:05 AM",  a,c )
 
-export function getEnum (dataList,keysList){
+// see https://runkit.com/jingkeke/5a1b877bb9cbb90011982702
+export function getEnum (dataList,getEnum){
   const resultArr=[]
-  keysList.forEach((key,i)=>{
-    const re=  R.filter(R.propEq('enumtypeId', key))(dataList);
-    resultArr.push(re)
-  })
-  //todo 优化是用innerJoin  groupBy
- // const result= R.groupBy((a,b)=>a.enumtypeId==b.enumtypeId,   R.innerJoin((record,id)=>record.enumtypeId==id ,
- //  dataList,keysList
- //  ) )
+  
+  //todo 优化是用 groupBy
+   return  R.compose(R.groupWith((b,a )=>b.enumtypeId===a.enumtypeId), R.filter(function(k){return [1110,1112].indexOf(k.enumtypeId)>=0 }))(b)
 
-  return  resultArr
 }
 
