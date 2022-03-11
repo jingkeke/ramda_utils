@@ -46,7 +46,7 @@ function vector() {
             return array[+i];     
         },
         store: function store(i, v) {
-            +'push' => NaN
+            // +'push' => NaN
             array[+i] = v;    
         },
         append: function append(v) {
@@ -78,8 +78,8 @@ my_pubsub.subscribe(log);
 my_pubsub.publish("It works!");
 
 //导致错误1
-my_pubsub.subscribe()
-my_pubsub.publish("It works!");
+// my_pubsub.subscribe()
+// my_pubsub.publish("It works!");
     // log("It works!")
 
 
@@ -95,6 +95,75 @@ my_pubsub.subscribe(function(){
 })
 
 
+//  黑客可以 扰乱顺序
+function pubsub2() { 
+    var subscribers = []; 
+    return Object.freeze({ 
+        subscribe: function (subscriber) {   
+            subscribers.push(subscriber); 
+        }, 
+        publish: function (publication) {
+            subscribers.forEach(function (s) { 
+                try { 
+                    s(publication);
+                } catch (ignore) {} 
+            }); 
+        }
+    });         
+}
+
+function limit(binary,count){
+   //知识点 我老感觉要建个变量其实可以直接用  ...
+  //let count =0
+      
+  return function (...arg){
+        
+    if(count<=0) return undefined;
+
+     count-=1;
+
+     return binary(...arg)
+
+  }
+}
+
+test = pubsub();
+test.subscribe(log);
+test.subscribe(limit(function () {
+            test.publish("Out of order");
+        }, 1));
+test.subscribe(log);
+
+test.publish("It works2!");
+
+
+
+
+
+
+
+
+
+
+// 正确版本 final
+
+function pubsubFinal() { 
+    var subscribers = []; 
+    return Object.freeze({ 
+        subscribe: function (subscriber) {   
+            subscribers.push(subscriber); 
+        }, 
+        publish: function (publication) {
+            subscribers.forEach(function (s) { 
+               //use setTimeout 就不需要 try 了 报错也是在其他地方报,对其他没影响
+                setTimeout(function () {
+                    s(publication);
+                }, 0);
+            }); 
+        }
+    });         
+
+}
 
 
 
