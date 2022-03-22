@@ -1,6 +1,5 @@
 
 
-
 function add (first ,second){return first + second}
 function mul (first ,second){ return first * second}
 function sub(first,second){ return first - second }
@@ -36,7 +35,6 @@ function addf(first){
 function liftf(binary  ){
     
   return function(first ){
-
   
      return function (second){
 
@@ -49,7 +47,7 @@ function liftf(binary  ){
 // add3(4)              // 7
 // curry(mul, 5)(6)     // 30
 function curry(binary ,first){
-     return liftf(binary )(first)
+     return liftf(binary)(first)
 }
 
 // function curry(func, ...first) {
@@ -74,9 +72,7 @@ log(inc(inc(5))      )   // 7
 
 function twice(binary){
 
-
   return function(a){
-
     return binary(a,a)
   }
 }
@@ -85,6 +81,7 @@ function twice(binary){
 
 
 // var bus =reverse(sub)
+
 // bus (3， 2) // -1
 // function reverse(binary){
 //   return function(a,b){
@@ -103,12 +100,10 @@ function reverse(binary){
 
 
 // function composeu(doub1,square)(5) //100
-//
 
 function composeu(f,g){
 
      return function (a){
-         
        return f(g(a))
        
      }
