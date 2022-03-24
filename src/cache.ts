@@ -29,7 +29,7 @@ export   function memoize(fn, getKey){
 // const memoExpensiveOperation = memoizeAsync(expensiveOperation, key => key)
   *
   */
-function memoizeAsync(fn, getKey){
+export function memoizeAsync(fn, getKey){
    const memo = {}, progressQueues = {}
 
    return function memoized(...allArgs){

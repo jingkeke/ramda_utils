@@ -34,6 +34,10 @@ console.log(
 yarn test
 # 指定文件
 yarn test  common.test.js
+yarn test  my.test.js
+
+
+
 ```
 
 ### 发布

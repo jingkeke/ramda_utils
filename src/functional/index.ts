@@ -62,3 +62,10 @@ function pop(array) {
   //  return a new array with the last old element removed
   return array.slice(0, -1);
 }
+
+
+
+
+
+
+

@@ -1,4 +1,4 @@
-import { curry } from "./index";
+import { curry } from "ramda";
 
 test("test  curry", () => {
   const get = curry(function getProper(property, obj) {
