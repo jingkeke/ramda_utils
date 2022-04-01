@@ -1,7 +1,8 @@
 /**
  * Created by Jzy on .2022年3月24日上午9:44:21 
  */
-const cache = require("../../lib/cache");
+// const cache = require("../../lib/cache");
+const cache = require("../../src/cache");
 
 test("base", () => {
   let memoize= cache.memoize(

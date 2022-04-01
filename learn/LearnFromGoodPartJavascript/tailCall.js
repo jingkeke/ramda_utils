@@ -1,6 +1,6 @@
 
 
-export function fabric(n){
+function fabric(n){
 
    if (n===1){
      return 1
@@ -11,4 +11,6 @@ export function fabric(n){
 }
 
 
-fabric(2)
+module.exports={fabric}
+
+// fabric(2)
