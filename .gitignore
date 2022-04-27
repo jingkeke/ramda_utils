@@ -1,5 +1,7 @@
 # dependencies
 /node_modules
+learn/fromDataScience/localhost*
+learn/fromDataScience/snipp*
 
 /package-lock.json
 /lib
