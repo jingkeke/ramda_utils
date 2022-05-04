@@ -6,9 +6,9 @@ const sortLists = () => {
 	  const children = Array.from(list.childNodes)
 		.filter(c => c.nodeName !== '#text')
        		
-	const aaa=  children.sort((left, right) =>
-			left.textContent.localeCompare(right.textContent))
-			console.log("🚀 ~ file: sort-lists.js ~ line 7 ~ lists.forEach ~ children", children,aaa)
+	const aaa=  children.sort((left, right) => {
+                left.textContent.localeCompare(right.textContent)})
+	console.log("🚀 ~ file: sort-lists.js ~ line 7 ~ lists.forEach ~ children", children,aaa)
 
 	  while (list.firstChild) {
 	    list.removeChild(list.firstChild)

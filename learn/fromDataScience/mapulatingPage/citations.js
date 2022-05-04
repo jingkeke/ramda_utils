@@ -23,7 +23,7 @@ const citations = () => {
 
 
 
-      document.addEventListener("DOMContentLoaded", (event) => {
+ document.addEventListener("DOMContentLoaded", (event) => {
 	 setTimeout( sortLists ,1000 )
 //       citations()
       })
