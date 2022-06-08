@@ -30,10 +30,13 @@ console.log(
 ## 升级jest 到V27  2022年4月1日上午9:09:04
 - 这个版本 ts 之类的应该能不用用 npm test 先build 在测试的问题
 主要是以前都是 **node 的module**  ,升级需要再改造成 es module 
+- 看完jest实践指南  obsidiant 2022年6月8日15:03:36
+
 
 参考 [jest][jesto]
 换了 webos 和 fatherjs 后 jest 有问题 _Cannot use import statement outside a module_
 然后现在改成 引用打包之后的 lib 里面的文件测试 ..... 2021 年 2 月 15 日
+
 
 
 
